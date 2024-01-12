@@ -10,5 +10,18 @@
     "created_at": "2024-01-12T15:03:38.238015",
     "updated_at": "2024-01-12T15:03:38.238141",
     "__class__": "BaseModel"
+  },
+  "BaseModel.02e9c776-233a-495c-8d00-d19140dd6db4": {
+    "id": "02e9c776-233a-495c-8d00-d19140dd6db4",
+    "created_at": "2024-01-11T14:53:07.475444",
+    "updated_at": "2024-01-11T14:53:07.475476",
+    "__class__": "BaseModel"
+  },
+  "User.f10ff0a2-9c49-4cc9-8d76-c6211fd2fcb1": {
+    "id": "f10ff0a2-9c49-4cc9-8d76-c6211fd2fcb1",
+    "created_at": "2024-01-11T16:00:04.323702",
+    "updated_at": "2024-01-11T16:00:37.513303",
+    "password": "simple",
+    "__class__": "User"
   }
 }

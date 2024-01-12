@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 from sys import path
-path.append('../../')
+# path.append('../../')
 from models.base_model import BaseModel
 
 my_model = BaseModel()

@@ -34,6 +34,7 @@ class HBNBCommand(Cmd):
             print("**class doesn't exit**")
             return
         new_basemodel = self.user_list[line]()
+        print(new_basemodel.id)
         new_basemodel.save()
 
     def search(self, line):

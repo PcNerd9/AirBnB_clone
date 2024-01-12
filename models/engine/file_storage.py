@@ -6,7 +6,7 @@ import json
 from datetime import datetime
 from models.base_model import BaseModel
 class FileStorage:
-    __file_path = "datafile.json"
+    __file_path = "file.json"
     __objects = {}
     
     def all(self):

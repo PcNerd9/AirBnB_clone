@@ -4,13 +4,13 @@ import os
 
 from time import sleep
 from sys import path
-path.append('/home/pcnerd/All_My_Alx_projects/alx-higher_level_programming/AirBnB_clone')
 import unittest
 from io import StringIO
 from unittest.mock import patch
 from datetime import datetime
-import models
+path.append("../../")
 from models.base_model import BaseModel
+from models import storage
 
 
 class TestBaseModel_1(unittest.TestCase):
@@ -71,7 +71,7 @@ class TestBaseModel_1(unittest.TestCase):
         self.assertEqual(BaseModel, type(BaseModel()))
 
     def test_new_instance_stored_in_objects(self):
-        self.assertIn(BaseModel(), models.storage.all().values())
+        self.assertIn(BaseModel(), storage.all().values())
 
     def test_id_is_public_str(self):
         self.assertEqual(str, type(BaseModel().id))

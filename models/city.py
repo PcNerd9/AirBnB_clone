@@ -1,10 +1,16 @@
-#!/usr/bin/python3 
-"""contain only City Class that inherit from the BaseModel class 
-"""
-from models.base_model import BaseModel
+#!/usr/bin/python3
+# Scripts that deals with City State
+
+from .base_model import BaseModel
 
 class City(BaseModel):
-    """inherit from the BaseModel class
+    """Take the City of the User
+
+    Args:
+        base_model (_type_): _description_
     """
-    stated_id = None
-    name = None
+    state_id = ""
+    name = ""
+    
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)

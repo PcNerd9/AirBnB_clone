@@ -1,11 +1,20 @@
 #!/usr/bin/python3
-"""contain only State Class that inherit from the BaseModel class 
-"""
-from models.base_model import BaseModel 
+# Scripts that deals with User info
+
+from .base_model import BaseModel
+
 class User(BaseModel):
-    """inherit from the BaseModel class
+    """_Take the infomation of the User
+
+    Args:
+        base_model (class): deals the manipulation of data
     """
-    email = None
-    password = None
-    first_name = None
-    last_name = None
+    email = ""
+    password = ""
+    first_name = ""
+    last_name = ""
+    
+    def __init__(self, *args, **kwargs):
+        """initialzing User Instance
+        """
+        super().__init__(*args, **kwargs)

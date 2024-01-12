@@ -37,10 +37,9 @@ class HBNBCommand(Cmd):
         if (line not in self.user_list):
             print("**class doesn't exit**")
             return
-        new_basemodel = self.user_list[line]()
-        print(new_basemodel.id)
-        new_basemodel.save()
-        print(new_basemodel.id)
+        new_instance = self.user_list[line]()
+        print(new_instance.id)
+        new_instance.save()
 
     def search(self, line):
         """search for an instance with Class name and id 

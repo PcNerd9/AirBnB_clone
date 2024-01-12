@@ -1,11 +1,18 @@
 #!/usr/bin/python3
-"""contain only Review Class that inherit from the BaseModel class 
-"""
-from models.base_model import BaseModel
+# Sripts that deals with the user Review
 
+from .base_model import BaseModel
 class Review(BaseModel):
-    """inherit from the BaseModel class
+    """Take the Review of the User
+
+    Args:
+        base_model (class): deals the manipulation of data
     """
-    place_id = None
-    user_id = None
-    text = None
+    place_id = ""
+    user_id = ""
+    text = ""
+    
+    def __init__(self, *args, **kwargs):
+        """initailizes Review Instance
+        """
+        super().__init__(*args, **kwargs)

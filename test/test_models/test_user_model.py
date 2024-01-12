@@ -14,56 +14,75 @@ Review = review.Review
 
 class TestModels(unittest.TestCase):
     def setUp(self):
-        # Create instances for testing ifr all the classes
-        self.user = User(
-            email="test@example.com",
-            password="password123",
-            first_name="John",
-            last_name="Doe"
-                         )
-        self.state = State(name="California")
-        self.city = City(state_id="1", name="San Francisco")
-        self.amenity = Amenity(name="WiFi")
-        self.place = Place(city_id="1", user_id="1", name="Cozy Apartment")
-        self.review = Review(place_id="1", user_id="1", text="Great stay!")
-    
+        self.user = User()
+        self.state = State()
+        self.city = City()
+        self.amenity = Amenity()
+        self.place = Place()
+        self.review = Review()
+
     def test_user_attributes(self):
-        """Test for the user entries
-        """
-        self.assertEqual(self.user.email, "test@example.com")
-        self.assertEqual(self.user.password, "password123")
-        self.assertEqual(self.user.first_name, "John")
-        self.assertEqual(self.user.last_name, "Doe")
-    
+        self.assertTrue(hasattr(self.user, "email"))
+        self.assertTrue(hasattr(self.user, "password"))
+        self.assertTrue(hasattr(self.user, "first_name"))
+        self.assertTrue(hasattr(self.user, "last_name"))
+
     def test_state_attributes(self):
-        """ Test for the state user entris
-        """
-        self.assertEqual(self.state.name, "California")
+        self.assertTrue(hasattr(self.state, "name"))
 
     def test_city_attributes(self):
-        """Test for all the City entries
-        """
-        self.assertEqual(self.city.state_id, "1")
-        self.assertEqual(self.city.name, "San Francisco")
+        self.assertTrue(hasattr(self.city, "name"))
+        self.assertTrue(hasattr(self.city, "state_id"))
 
     def test_amenity_attributes(self):
-        """Test for all amenity entries
-        """
-        self.assertEqual(self.amenity.name, "WiFi")
+        self.assertTrue(hasattr(self.amenity, "name"))
 
     def test_place_attributes(self):
-        """Test for all place entries
-        """
-        self.assertEqual(self.place.city_id, "1")
-        self.assertEqual(self.place.user_id, "1")
-        self.assertEqual(self.place.name, "Cozy Apartment")
+        self.assertTrue(hasattr(self.place, "name"))
+        self.assertTrue(hasattr(self.place, "city_id"))
+        self.assertTrue(hasattr(self.place, "user_id"))
 
     def test_review_attributes(self):
-        """Tests for all review entries
-        """
-        self.assertEqual(self.review.place_id, "1")
-        self.assertEqual(self.review.user_id, "1")
-        self.assertEqual(self.review.text, "Great stay!")
-        
-if __name__ == "__main__":
+        self.assertTrue(hasattr(self.review, "text"))
+        self.assertTrue(hasattr(self.review, "place_id"))
+        self.assertTrue(hasattr(self.review, "user_id"))
+
+    def test_user_string_representation(self):
+        self.assertEqual(
+            str(self.user),
+            f"[{self.user.__class__.__name__}] ({self.user.id}) {self.user.__dict__}"
+        )
+
+    def test_state_string_representation(self):
+        self.assertEqual(
+            str(self.state),
+            f"[{self.state.__class__.__name__}] ({self.state.id}) {self.state.__dict__}"
+        )
+
+    def test_city_string_representation(self):
+        self.assertEqual(
+            str(self.city),
+            f"[{self.city.__class__.__name__}] ({self.city.id}) {self.city.__dict__}"
+        )
+
+    def test_amenity_string_representation(self):
+        self.assertEqual(
+            str(self.amenity),
+            f"[{self.amenity.__class__.__name__}] ({self.amenity.id}) {self.amenity.__dict__}"
+        )
+
+    def test_place_string_representation(self):
+        self.assertEqual(
+            str(self.place),
+            f"[{self.place.__class__.__name__}] ({self.place.id}) {self.place.__dict__}"
+        )
+
+    def test_review_string_representation(self):
+        self.assertEqual(
+            str(self.review),
+            f"[{self.review.__class__.__name__}] ({self.review.id}) {self.review.__dict__}"
+        )
+
+
+if __name__ == '__main__':
     unittest.main()

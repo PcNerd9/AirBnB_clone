@@ -1,19 +1,27 @@
 #!/usr/bin/python3
-"""contain only Place Class that inherit from the BaseModel class 
-"""
-from models.base_model import BaseModel
+# Sripts that deals with the user Place
+
+from .base_model import BaseModel
 
 class Place(BaseModel):
-    """inherit from the BaseModel class
+    """Take the Place of the User
+
+    Args:
+        base_model (class): deals the manipulation of data
     """
-    city_id = None
-    user_id = None
-    name = None
-    description = None
-    number_rooms = 0
-    number_bathrooms = 0
-    max_guest = 0
-    price_by_night = 0
-    latitude = 0.0
-    longitude = 0.0
-    amenity_id = None
+    city_id = ""
+    user_id = ""
+    name = ""
+    description = ""
+    number_rooms = ""
+    number_bathrooms = ""
+    max_guest = ""
+    price_by_night = ""
+    latitude =  ""
+    longitude = ""
+    amenity_ids = ""
+    
+    def __init__(self, *args, **kwargs):
+        """initailizes Place Instance
+        """
+        super().__init__(*args, **kwargs)

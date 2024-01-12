@@ -1,8 +1,7 @@
 #!/usr/bin/python3
-"""_summary_
-
-    Returns:
-        _type_: _description_
+"""
+Contains a single class (HBNBCommand) which uses the Cmd class
+as the base class to implement the python command line interpreter
 """
 from cmd import Cmd
 import models
@@ -16,6 +15,9 @@ from models.user import User
 
 
 class HBNBCommand(Cmd):
+    """Implement the python commmand line interpreter using the
+    Cmd class as the base class
+    """
     prompt = "(hbnb) "
     user_list = {"BaseModel": BaseModel,
                  "State": State,
@@ -27,6 +29,8 @@ class HBNBCommand(Cmd):
                  }
     
     def do_create(self, line):
+        """Create <Class Name> create a new class with the class name
+        """
         if (line == ""):
             print("**class name missing**")
             return
@@ -36,8 +40,17 @@ class HBNBCommand(Cmd):
         new_basemodel = self.user_list[line]()
         print(new_basemodel.id)
         new_basemodel.save()
+        print(new_basemodel.id)
 
     def search(self, line):
+        """search for an instance with Class name and id 
+
+        Args:
+            line (_type_): the instance of the class found
+
+        Returns:
+            _type_: _description_
+        """
         if (line == ""):
             print("**class name missing**")
             return False
@@ -56,6 +69,9 @@ class HBNBCommand(Cmd):
                 return(all_objects[key])
             
     def do_show(self, line):
+        """Show <Class Name> <id> print the string representation
+        of an instance based on the class name and id 
+        """
         obj = self.search(line)
         if (obj):
             print(obj)
@@ -63,6 +79,9 @@ class HBNBCommand(Cmd):
             print("**no instance found**")
         
     def do_destroy(self, line):
+        """Destroy <Class Name> <id> deletes an instance based on the
+        class name and id then save the changes
+        """
         if (line == ""):
             print("**class name missing**")
             return
@@ -83,17 +102,24 @@ class HBNBCommand(Cmd):
         print("** no instance found **")
     
     def do_all(self, line):
+        """All <Class Name> print all string representation of all instances
+        based or not on the class name: Ex. (HBNB) all BaseModel or (HBNB) all
+        """
         if (line != "" and line not in self.user_list):
             print("** class doesn't exit **")
             return
         all_objects = models.storage.all()
-        for key in all_objects.keys():
-            print(all_objects[key])
+        list_object = [str(value) for value in all_objects.values()]
+        print(list_object)
                 
     def do_update(self, line):
+        """Update <Class Name> <id> updates an instance based oon the class name and id
+        by adding or updating attribute
+        """
         if (line == ""):
             print("** class name missing **")
             return
+        line =line.replace('"', '')
         param = line.split()
         if (param[0] not in self.user_list):
             return    
@@ -106,12 +132,12 @@ class HBNBCommand(Cmd):
         if (len(param) == 3):
             print("** value missing **")
             return
-        
+        print(line)
         obj_id = ".".join([param[0], param[1]])
         all_objects = models.storage.all()
         for key in all_objects.keys():
             if (key == obj_id):
-                setattr(all_objects[key], param[2], param[3])
+                setattr(all_objects[key], param[2], str(param[3]))
                 all_objects[key].save()
                 return
         print("**no instance found**")    

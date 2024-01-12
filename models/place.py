@@ -1,8 +1,11 @@
 #!/usr/bin/python3
-
+"""contain only Place Class that inherit from the BaseModel class 
+"""
 from models.base_model import BaseModel
 
 class Place(BaseModel):
+    """inherit from the BaseModel class
+    """
     city_id = None
     user_id = None
     name = None

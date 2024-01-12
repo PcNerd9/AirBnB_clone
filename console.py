@@ -1,8 +1,7 @@
 #!/usr/bin/python3
-"""_summary_
-
-    Returns:
-        _type_: _description_
+"""
+Contains a single class (HBNBCommand) which uses the Cmd class
+as the base class to implement the python command line interpreter
 """
 from cmd import Cmd
 import models
@@ -16,6 +15,9 @@ from models.user import User
 
 
 class HBNBCommand(Cmd):
+    """Implement the python commmand line interpreter using the
+    Cmd class as the base class
+    """
     prompt = "(hbnb) "
     user_list = {"BaseModel": BaseModel,
                  "State": State,
@@ -100,10 +102,8 @@ class HBNBCommand(Cmd):
         print("** no instance found **")
     
     def do_all(self, line):
-        """All <Class Name
-
-        Args:
-            line (_type_): _description_
+        """All <Class Name> print all string representation of all instances
+        based or not on the class name: Ex. (HBNB) all BaseModel or (HBNB) all
         """
         if (line != "" and line not in self.user_list):
             print("** class doesn't exit **")
@@ -113,6 +113,9 @@ class HBNBCommand(Cmd):
         print(list_object)
                 
     def do_update(self, line):
+        """Update <Class Name> <id> updates an instance based oon the class name and id
+        by adding or updating attribute
+        """
         if (line == ""):
             print("** class name missing **")
             return

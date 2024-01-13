@@ -32,15 +32,14 @@ class HBNBCommand(Cmd):
         """Create <Class Name> create a new class with the class name
         """
         if (line == ""):
-            print("**class name missing**")
+            print("** class name missing **")
             return
         if (line not in self.__user_list):
-            print("**class doesn't exit**")
+            print("** class doesn't exit **")
             return
         new_basemodel = self.__user_list[line]()
         print(new_basemodel.id)
         new_basemodel.save()
-        print(new_basemodel.id)
 
     def search(self, line):
         """search for an instance with Class name and id
@@ -51,14 +50,14 @@ class HBNBCommand(Cmd):
             _type_: _description_
         """
         if (line == ""):
-            print("**class name missing**")
+            print("** class name missing **")
             return False
         param = line.split()
         if (param[0] not in self.__user_list):
-            print("**class doesn't exit**")
+            print("** class doesn't exit **")
             return False
         if (len(param) == 1):
-            print("**instance id missing**")
+            print("** instance id missing **")
             return False
         obj_id = ".".join([param[0], param[1]])
 
@@ -82,7 +81,7 @@ class HBNBCommand(Cmd):
         class name and id then save the changes
         """
         if (line == ""):
-            print("**class name missing**")
+            print("** class name missing **")
             return
         param = line.split()
         if (param[0] not in self.__user_list):
@@ -140,9 +139,13 @@ class HBNBCommand(Cmd):
                 setattr(all_objects[key], param[2], str(param[3]))
                 all_objects[key].save()
                 return
-        print("**no instance found**")
+        print("** no instance found **")
 
     def all(self, arg):
+        """
+        <Class Name>.all() returns a list of all the
+        <Class Name> in the storage
+        """
         splitted_arg = arg.split()
         obj = splitted_arg[0]
         if (obj not in self.__user_list):
@@ -154,6 +157,10 @@ class HBNBCommand(Cmd):
         print(all_obj)
 
     def count(self, arg):
+        """
+        <Class Name>.count() return the number of
+        times the <Class Name> is present in the storage
+        """
         splitted_arg = arg.split()
         obj = splitted_arg[0]
         if (obj not in self.__user_list):
@@ -167,6 +174,12 @@ class HBNBCommand(Cmd):
         print(number)
 
     def parse_command(self, command):
+        """
+        parse the command in form of
+        <Class Name>.<Command>('arguments')
+        and return a tuple (<command>, '<Class Name> argument
+        ')
+        """
         if ("." not in command):
             return None
         command_list = command.split(".")
@@ -183,6 +196,11 @@ class HBNBCommand(Cmd):
         return (command, argument)
 
     def default(self, line):
+        """
+        Handles command that a passed in form of
+        <Class Name>.<command('argument(s)') and
+        non-existing commands
+        """
         commands = {
             "all": self.all,
             "count": self.count,

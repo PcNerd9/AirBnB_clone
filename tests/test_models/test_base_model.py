@@ -5,7 +5,7 @@ import os
 from time import sleep
 from sys import path
 path.append('/home/pcnerd/All_My_Alx_projects'
-        '/alx-higher_level_programming/AirBnB_clone')
+            '/alx-higher_level_programming/AirBnB_clone')
 import unittest
 from io import StringIO
 from unittest.mock import patch
@@ -98,6 +98,10 @@ class TestBaseModel_1(unittest.TestCase):
         bm1 = BaseModel()
         sleep(0.05)
         bm2 = BaseModel()
+        self.assertLess(bm1.updated_at, bm2.updated_at)
+
+    def test_str_representation(self):
+        dt = datetime.today()
         self.assertLess(bm1.updated_at, bm2.updated_at)
 
     def test_str_representation(self):
@@ -236,7 +240,3 @@ class TestBaseModel_to_dict(unittest.TestCase):
     def test_to_dict_with_arg(self):
         bm = BaseModel()
         with self.assertRaises(TypeError):
-            bm.to_dict(None)    
-    
-if __name__ == "__main__":
-    unittest.main()

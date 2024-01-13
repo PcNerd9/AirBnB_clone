@@ -5,6 +5,14 @@ from models.base_model import BaseModel
 
 
 class State(BaseModel):
-    """inherit from the BaseModel class
+    """Take the State of the User
+
+    Args:
+        base_model (class): deals the manipulation of data
     """
-    name = None
+    name = ""
+
+    def __init__(self, *args, **kwargs):
+        """initailizes State Instance
+        """
+        super().__init__(*args, **kwargs)

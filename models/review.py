@@ -1,7 +1,7 @@
 #!/usr/bin/python3
-# Sripts that deals with the user Review
-
-from .base_model import BaseModel
+"""contain only Review Class that inherit from the BaseModel class
+"""
+from models.base_model import BaseModel
 
 
 class Review(BaseModel):

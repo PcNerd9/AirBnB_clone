@@ -1,7 +1,8 @@
 #!/usr/bin/python3
-# Sripts that deals with the user State
+"""contain only State Class that inherit from the BaseModel class
+"""
+from models.base_model import BaseModel
 
-from .base_model import BaseModel
 
 
 class State(BaseModel):

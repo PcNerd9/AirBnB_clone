@@ -3,9 +3,14 @@
 # and deserializes from JSON to instances to oython format
 
 import json
-from os.path import isfile
 from datetime import datetime
 from models.base_model import BaseModel
+from models.user import User
+from models.amenity import Amenity
+from models.city import City
+from models.place import Place
+from models.state import State
+from models.review import Review
 
 
 class FileStorage:
@@ -14,7 +19,7 @@ class FileStorage:
         in __dict__ format, reload from {file.json}
         and delete objects
     """
-    __file_path = "file.json"
+    __file_path = "datafile.json"
     __objects = {}
 
     def all(self):
@@ -39,8 +44,20 @@ class FileStorage:
     def reload(self):
         """Read for the file.json and convert bask to python format
         """
-        if isfile(self.__file_path):
+        user_list = {"BaseModel": BaseModel,
+                     "State": State,
+                     "City": City,
+                     "Amenity": Amenity,
+                     "Review": Review,
+                     "Place": Place,
+                     "User": User
+                     }
+        try:
             with open(self.__file_path, "r") as f:
                 self.__objects = json.load(f)
                 for key, value in self.__objects.items():
-                    self.__objects[key] = BaseModel(**value)
+                    obj = key.split(".")[0]
+
+                    self.__objects[key] = user_list[obj](**value)
+        except FileNotFoundError:
+            pass

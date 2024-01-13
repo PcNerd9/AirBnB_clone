@@ -1,7 +1,8 @@
 #!/usr/bin/python3
-# Scripts that deals with User info
+"""contain only State Class that inherit from the BaseModel class
+"""
+from models.base_model import BaseModel
 
-from .base_model import BaseModel
 
 
 class User(BaseModel):

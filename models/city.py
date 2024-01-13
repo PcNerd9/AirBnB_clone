@@ -1,7 +1,7 @@
 #!/usr/bin/python3
-# Scripts that deals with City State
-
-from .base_model import BaseModel
+"""contain only City Class that inherit from the BaseModel class
+"""
+from models.base_model import BaseModel
 
 
 class City(BaseModel):
@@ -19,4 +19,5 @@ class City(BaseModel):
         Args:
             base_model (_type_): _description_
         """
+        pass all the arguments to the base class
         super().__init__(*args, **kwargs)

@@ -1,7 +1,8 @@
 #!/bin/usr/python3
-# Scripts that serializes data from python format to JSON
-# and deserializes from JSON to instances to oython format
 
+""" Scripts that serializes data from python format to JSON
+and deserializes from JSON to instances to oython format
+"""
 import json
 from datetime import datetime
 from models.base_model import BaseModel

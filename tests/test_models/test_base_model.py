@@ -4,7 +4,8 @@ import os
 
 from time import sleep
 from sys import path
-path.append('/home/pcnerd/All_My_Alx_projects/alx-higher_level_programming/AirBnB_clone')
+path.append('/home/pcnerd/All_My_Alx_projects'
+        '/alx-higher_level_programming/AirBnB_clone')
 import unittest
 from io import StringIO
 from unittest.mock import patch

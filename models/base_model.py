@@ -29,11 +29,11 @@ class BaseModel():
             self.id = str(uuid4())
             self.created_at = datetime.now()
             self.updated_at = self.created_at
+            models.storage.new(self)
 
     def save(self):
         """_summary_: saves the object to a file in form of json
         """
-        models.storage.new(self)
         self.updated_at = datetime.now()
         models.storage.save()
 
@@ -51,4 +51,4 @@ class BaseModel():
         Returns:
             _type_:__str__
         """
-        return f"[{self.__class__.__name__}], ({self.id}), {self.__dict__}"
+        return f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}"

@@ -3,12 +3,10 @@
 import os
 
 from time import sleep
-from sys import path
 import unittest
 from io import StringIO
 from unittest.mock import patch
 from datetime import datetime
-path.append("../../")
 from models.base_model import BaseModel
 from models import storage
 

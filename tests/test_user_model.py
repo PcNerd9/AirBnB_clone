@@ -1,9 +1,7 @@
 #!/usr/bin/python3
 # Scripts that tests for User
 
-import sys
 import unittest
-sys.path.append("../../")
 from models import user, state, city, place, review, amenity
 User = user.User
 State = state.State

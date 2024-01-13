@@ -16,24 +16,28 @@ class BaseModel():
     def __init__(self, *arg, **kwargs):
         """initialize the BaseModel
         """
-        if (kwargs):
+        if kwargs:
+            kwargs['__class__'] = type(self).__name__
+            kwargs['created_at'] = datetime.strptime(
+                kwargs['created_at'], "%Y-%m-%dT%H:%M:%S.%f"
+                )
+            kwargs['updated_at'] = datetime.strptime(
+                kwargs['updated_at'], "%Y-%m-%dT%H:%M:%S.%f"
+                )
+
             for key, value in kwargs.items():
-                if (key == "__class__"):
-                    continue
-                else:
+                if key != '__class__':
                     setattr(self, key, value)
-            self.created_at = datetime.fromisoformat(self.created_at)
-            self.updated_at = datetime.fromisoformat(self.updated_at)
         else:
             self.id = str(uuid4())
             self.created_at = datetime.now()
-            self.updated_at = datetime.now()
-            models.storage.new(self)
+            self.updated_at = self.created_at
 
     def save(self):
         """_summary_: saves the object to a file in form of json
         """
         self.updated_at = datetime.now()
+        models.storage.new(self)
         models.storage.save()
 
     def to_dict(self):

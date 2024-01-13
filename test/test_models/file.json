@@ -90,5 +90,29 @@
     "created_at": "2024-01-12T20:42:53.972648",
     "updated_at": "2024-01-12T20:42:53.974009",
     "__class__": "BaseModel"
+  },
+  "BaseModel.2e60651b-2213-465d-a993-5087041e69ae": {
+    "id": "2e60651b-2213-465d-a993-5087041e69ae",
+    "created_at": "2024-01-13T20:05:50.540308",
+    "updated_at": "2024-01-13T20:05:50.540354",
+    "name": "My First Model",
+    "my_number": 89,
+    "__class__": "BaseModel"
+  },
+  "BaseModel.05eba567-4ead-46b4-9e06-1764c2f20e48": {
+    "id": "05eba567-4ead-46b4-9e06-1764c2f20e48",
+    "created_at": "2024-01-13T20:06:17.104649",
+    "updated_at": "2024-01-13T20:06:17.104695",
+    "name": "My First Model",
+    "my_number": 89,
+    "__class__": "BaseModel"
+  },
+  "BaseModel.bbd94e6a-df2e-4f9f-bfad-6681274536c8": {
+    "id": "bbd94e6a-df2e-4f9f-bfad-6681274536c8",
+    "created_at": "2024-01-13T20:06:37.104422",
+    "updated_at": "2024-01-13T20:06:37.104467",
+    "name": "My First Model",
+    "my_number": 89,
+    "__class__": "BaseModel"
   }
 }

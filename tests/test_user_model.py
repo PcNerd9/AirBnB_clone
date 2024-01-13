@@ -10,6 +10,7 @@ Amenity = amenity.Amenity
 Place = place.Place
 Review = review.Review
 
+
 class TestModels(unittest.TestCase):
     def setUp(self):
         self.user = User()
@@ -48,37 +49,42 @@ class TestModels(unittest.TestCase):
     def test_user_string_representation(self):
         self.assertEqual(
             str(self.user),
-            f"[{self.user.__class__.__name__}] ({self.user.id}) {self.user.__dict__}"
+            f"[{self.user.__class__.__name__}] "
+            f"({self.user.id}) {self.user.__dict__}"
         )
 
     def test_state_string_representation(self):
         self.assertEqual(
             str(self.state),
-            f"[{self.state.__class__.__name__}] ({self.state.id}) {self.state.__dict__}"
+            f"[{self.state.__class__.__name__}] "
+            f"({self.state.id}) {self.state.__dict__}"
         )
 
     def test_city_string_representation(self):
         self.assertEqual(
             str(self.city),
-            f"[{self.city.__class__.__name__}] ({self.city.id}) {self.city.__dict__}"
+            f"[{self.city.__class__.__name__}] "
+            f"({self.city.id}) {self.city.__dict__}"
         )
 
     def test_amenity_string_representation(self):
         self.assertEqual(
             str(self.amenity),
-            f"[{self.amenity.__class__.__name__}] ({self.amenity.id}) {self.amenity.__dict__}"
-        )
-
+            f"[{self.amenity.__class__.__name__}] "
+            f"({self.amenity.id}) {self.amenity.__dict__}"
+            )
     def test_place_string_representation(self):
         self.assertEqual(
             str(self.place),
-            f"[{self.place.__class__.__name__}] ({self.place.id}) {self.place.__dict__}"
+            f"[{self.place.__class__.__name__}] "
+            f"({self.place.id}) {self.place.__dict__}"
         )
 
     def test_review_string_representation(self):
         self.assertEqual(
             str(self.review),
-            f"[{self.review.__class__.__name__}] ({self.review.id}) {self.review.__dict__}"
+            f"[{self.review.__class__.__name__}] "
+            f"({self.review.id}) {self.review.__dict__}"
         )
 
 

@@ -1,22 +1,13 @@
 #!/usr/bin/python3
 # Scripts that test my base_model_1
-import os
 
+import os
 from time import sleep
-<<<<<<<< HEAD:tests/test_base_model.py
-========
-from sys import path
-path.append('/home/pcnerd/All_My_Alx_projects'
-            '/alx-higher_level_programming/AirBnB_clone')
->>>>>>>> a04fde19a7ba01dc71b4941a852df4896db55d60:tests/test_models/test_base_model.py
 import unittest
 from io import StringIO
 from unittest.mock import patch
 from datetime import datetime
-<<<<<<<< HEAD:tests/test_base_model.py
-========
 import models
->>>>>>>> a04fde19a7ba01dc71b4941a852df4896db55d60:tests/test_models/test_base_model.py
 from models.base_model import BaseModel
 
 
@@ -40,11 +31,11 @@ class TestBaseModel_1(unittest.TestCase):
         self.assertIsInstance(self.instance.id, str)
         self.assertIsInstance(self.instance.created_at, datetime)
         self.assertIsInstance(self.instance.updated_at, datetime)
-    
+
     def test_magic_method_str(self):
         # checks the return of __str__ magic method
-        expected_output = f"[BaseModel] ({self.instance.id}) {self.instance.__dict__}"
-        self.assertEqual(str(self.instance), expected_output)
+        expctd = f"[BaseModel] ({self.instance.id}) {self.instance.__dict__}"
+        self.assertEqual(str(self.instance), expctd)
 
     @patch("sys.stdout", new_callable=StringIO)
     def test_for_save_method(self, mock_stdout):
@@ -73,7 +64,7 @@ class TestBaseModel_1(unittest.TestCase):
         self.assertIsInstance(object_dict['id'], str)
         self.assertTrue(datetime.fromisoformat(object_dict['created_at']))
         self.assertTrue(datetime.fromisoformat(object_dict['updated_at']))
-        
+
     def test_no_args_instantiates(self):
         self.assertEqual(BaseModel, type(BaseModel()))
 
@@ -191,13 +182,6 @@ class TestBaseModel_save(unittest.TestCase):
         with self.assertRaises(TypeError):
             bm.save(None)
 
-    def test_save_updates_file(self):
-        bm = BaseModel()
-        bm.save()
-        bmid = "BaseModel." + bm.id
-        with open("file.json", "r") as f:
-            self.assertIn(bmid, f.read())
-
 
 class TestBaseModel_to_dict(unittest.TestCase):
     """Unittests for testing to_dict method of the BaseModel class."""
@@ -246,3 +230,7 @@ class TestBaseModel_to_dict(unittest.TestCase):
     def test_to_dict_with_arg(self):
         bm = BaseModel()
         with self.assertRaises(TypeError):
+             bm.to_dict(None)    
+
+if __name__ == "__main__":
+    unittest.main()

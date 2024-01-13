@@ -2,6 +2,8 @@
 # Sripts that deals with the user Review
 
 from .base_model import BaseModel
+
+
 class Review(BaseModel):
     """Take the Review of the User
 
@@ -11,7 +13,7 @@ class Review(BaseModel):
     place_id = ""
     user_id = ""
     text = ""
-    
+
     def __init__(self, *args, **kwargs):
         """initailizes Review Instance
         """

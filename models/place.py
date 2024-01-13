@@ -3,6 +3,7 @@
 
 from .base_model import BaseModel
 
+
 class Place(BaseModel):
     """Take the Place of the User
 
@@ -17,10 +18,10 @@ class Place(BaseModel):
     number_bathrooms = ""
     max_guest = ""
     price_by_night = ""
-    latitude =  ""
+    latitude = ""
     longitude = ""
     amenity_ids = ""
-    
+
     def __init__(self, *args, **kwargs):
         """initailizes Place Instance
         """

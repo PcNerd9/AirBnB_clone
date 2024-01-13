@@ -3,6 +3,7 @@
 
 from .base_model import BaseModel
 
+
 class Amenity(BaseModel):
     """Take the Amenity of the User
 
@@ -10,7 +11,7 @@ class Amenity(BaseModel):
         base_model (class): deals the manipulation of data
     """
     name = ""
-    
+
     def __init__(self, *args, **kwargs):
         """initailizes Amenity Instance
         """

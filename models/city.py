@@ -3,6 +3,7 @@
 
 from .base_model import BaseModel
 
+
 class City(BaseModel):
     """Take the City of the User
 
@@ -11,6 +12,11 @@ class City(BaseModel):
     """
     state_id = ""
     name = ""
-    
+
     def __init__(self, *args, **kwargs):
+        """Take the City of the User
+
+        Args:
+            base_model (_type_): _description_
+        """
         super().__init__(*args, **kwargs)

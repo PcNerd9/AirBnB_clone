@@ -3,6 +3,7 @@
 
 from .base_model import BaseModel
 
+
 class User(BaseModel):
     """_Take the infomation of the User
 
@@ -13,7 +14,7 @@ class User(BaseModel):
     password = ""
     first_name = ""
     last_name = ""
-    
+
     def __init__(self, *args, **kwargs):
         """initialzing User Instance
         """

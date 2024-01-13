@@ -1,7 +1,7 @@
 #!/usr/bin/python3
-#Scripts that deals with the Class [BaseModel]
-#That also create the dict for all object for
-#serialization and deserialization
+# Scripts that deals with the Class [BaseModel]
+# That also create the dict for all object for
+# serialization and deserialization
 
 
 from datetime import datetime
@@ -40,13 +40,10 @@ class BaseModel():
     def to_dict(self):
         """_summary_: returns the dictionary representation of an instance
         """
-        new_dict = self.__dict__.copy()
-        if "created_at" in new_dict:
-            new_dict["created_at"] = new_dict["created_at"].isoformat()
-        if "updated_at" in new_dict:
-            new_dict["updated_at"] = new_dict["updated_at"].isoformat()
+        new_dict = {key: value for key, value in self.__dict__.items()}
+        new_dict["created_at"] = new_dict["created_at"].isoformat()
+        new_dict["updated_at"] = new_dict["updated_at"].isoformat()
         new_dict["__class__"] = self.__class__.__name__
-
         return new_dict
 
     def __str__(self):

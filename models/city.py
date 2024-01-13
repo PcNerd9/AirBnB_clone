@@ -19,5 +19,5 @@ class City(BaseModel):
         Args:
             base_model (_type_): _description_
         """
-        pass all the arguments to the base class
+        # pass all the arguments to the base class
         super().__init__(*args, **kwargs)

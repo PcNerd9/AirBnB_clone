@@ -3,7 +3,7 @@
 Contains a single class (HBNBCommand) which uses the Cmd class
 as the base class to implement the python command line interpreter
 """
-from cmd import Cmd
+import cmd
 import models
 from models.base_model import BaseModel
 from models.state import State
@@ -14,7 +14,7 @@ from models.review import Review
 from models.user import User
 
 
-class HBNBCommand(Cmd):
+class HBNBCommand(cmd.Cmd):
     """Implement the python commmand line interpreter using the
     Cmd class as the base class
     """
@@ -112,7 +112,8 @@ class HBNBCommand(Cmd):
         print(list_object)
 
     def do_update(self, line):
-        """Update <Class Name> <id> updates an instance based
+        """Update <Class Name> <id> <attribute name> '<attribute value>'
+        updates an instance based
         on the class name and id
         by adding or updating attribute
         """
@@ -136,8 +137,7 @@ class HBNBCommand(Cmd):
         print(line)
         obj_id = ".".join([param[0], param[1]])
         all_objects = models.storage.all()
-        for key in all_objects.keys():
-            if (key == obj_id):
+        if (obj_id in all_objects):
                 if (param[2] in all_objects[key].__dict__):
                     type_ = type(all_objects[key].__dict__param[2])
                     setattr(all_objects[key], param[2], type_(param[3]))

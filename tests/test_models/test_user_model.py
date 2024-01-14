@@ -10,6 +10,7 @@ Amenity = amenity.Amenity
 Place = place.Place
 Review = review.Review
 
+
 class TestModels(unittest.TestCase):
     def setUp(self):
         self.user = User()
@@ -46,39 +47,57 @@ class TestModels(unittest.TestCase):
         self.assertTrue(hasattr(self.review, "user_id"))
 
     def test_user_string_representation(self):
+        class_name = self.user.__class__.__name__
+        class_id = self.user.id
+        class_dict = self.user.__dict__
         self.assertEqual(
             str(self.user),
-            f"[{self.user.__class__.__name__}] ({self.user.id}) {self.user.__dict__}"
+            f"[{class_name}] ({class_id}) {class_dict}"
         )
 
     def test_state_string_representation(self):
+        class_name = self.state.__class__.__name__
+        class_id = self.state.id
+        class_dict = self.state.__dict__
         self.assertEqual(
             str(self.state),
-            f"[{self.state.__class__.__name__}] ({self.state.id}) {self.state.__dict__}"
+            f"[{class_name}] ({class_id}) {class_dict}"
         )
 
     def test_city_string_representation(self):
+        class_name = self.city.__class__.__name__
+        class_id = self.city.id
+        class_dict = self.city.__dict__
         self.assertEqual(
             str(self.city),
-            f"[{self.city.__class__.__name__}] ({self.city.id}) {self.city.__dict__}"
+            f"[{class_name}] ({class_id}) {class_dict}"
         )
 
     def test_amenity_string_representation(self):
+        class_name = self.amenity.__class__.__name__
+        class_id = self.amenity.id
+        class_dict = self.amenity.__dict__
         self.assertEqual(
             str(self.amenity),
-            f"[{self.amenity.__class__.__name__}] ({self.amenity.id}) {self.amenity.__dict__}"
+            f"[{class_name}] ({class_id}) {class_dict}"
         )
 
     def test_place_string_representation(self):
+        class_name = self.place.__class__.__name__
+        class_id = self.place.id
+        class_dict = self.place.__dict__
         self.assertEqual(
             str(self.place),
-            f"[{self.place.__class__.__name__}] ({self.place.id}) {self.place.__dict__}"
+            f"[{class_name}] ({class_id}) {class_dict}"
         )
 
     def test_review_string_representation(self):
+        class_name = self.review.__class__.__name__
+        class_id = self.review.id
+        class_dict = self.review.__dict__
         self.assertEqual(
             str(self.review),
-            f"[{self.review.__class__.__name__}] ({self.review.id}) {self.review.__dict__}"
+            f"[{class_name}] ({class_id}) {class_dict}"
         )
 
 

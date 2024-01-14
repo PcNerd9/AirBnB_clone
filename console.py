@@ -136,7 +136,11 @@ class HBNBCommand(Cmd):
         all_objects = models.storage.all()
         for key in all_objects.keys():
             if (key == obj_id):
-                setattr(all_objects[key], param[2], str(param[3]))
+                if (param[2] in all_objects[key].__dict__):
+                    type_ = type(all_objects[key].__dict__param[2])
+                    setattr(all_objects[key], param[2], type_(param[3]))
+                else:    
+                    setattr(all_objects[key], param[2], param[3])
                 all_objects[key].save()
                 return
         print("** no instance found **")

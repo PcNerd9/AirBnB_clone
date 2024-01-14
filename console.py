@@ -35,11 +35,11 @@ class HBNBCommand(Cmd):
             print("** class name missing **")
             return
         if (line not in self.__user_list):
-            print("** class doesn't exit **")
+            print("** class doesn't exist **")
             return
         new_basemodel = self.__user_list[line]()
-        print(new_basemodel.id)
         new_basemodel.save()
+        print(new_basemodel.id)
 
     def search(self, line):
         """search for an instance with Class name and id
@@ -54,7 +54,7 @@ class HBNBCommand(Cmd):
             return False
         param = line.split()
         if (param[0] not in self.__user_list):
-            print("** class doesn't exit **")
+            print("** class doesn't exist **")
             return False
         if (len(param) == 1):
             print("** instance id missing **")
@@ -85,7 +85,7 @@ class HBNBCommand(Cmd):
             return
         param = line.split()
         if (param[0] not in self.__user_list):
-            print("** class doesn't exit **")
+            print("** class doesn't exist **")
             return
         if (len(param) == 1):
             print("** instance id missing **")
@@ -104,7 +104,7 @@ class HBNBCommand(Cmd):
         based or not on the class name: Ex. (HBNB) all BaseModel or (HBNB) all
         """
         if (line != "" and line not in self.__user_list):
-            print("** class doesn't exit **")
+            print("** class doesn't exits **")
             return
         all_objects = models.storage.all()
         list_object = [str(value) for value in all_objects.values()]
@@ -121,6 +121,7 @@ class HBNBCommand(Cmd):
         line = line.replace('"', '')
         param = line.split()
         if (param[0] not in self.__user_list):
+            print("** class doesn't exist **")
             return
         if (len(param) == 1):
             print("** instance id missing **")

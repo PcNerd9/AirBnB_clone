@@ -65,6 +65,7 @@ class HBNBCommand(Cmd):
         for key in all_objects.keys():
             if (key == obj_id):
                 return all_objects[key]
+        return None
 
     def do_show(self, line):
         """Show <Class Name> <id> print the string representation
@@ -104,7 +105,7 @@ class HBNBCommand(Cmd):
         based or not on the class name: Ex. (HBNB) all BaseModel or (HBNB) all
         """
         if (line != "" and line not in self.__user_list):
-            print("** class doesn't exits **")
+            print("** class doesn't exist **")
             return
         all_objects = models.storage.all()
         list_object = [str(value) for value in all_objects.values()]

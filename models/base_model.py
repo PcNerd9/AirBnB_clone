@@ -1,7 +1,8 @@
 #!/usr/bin/python3
-# Scripts that deals with the Class [BaseModel]
-# That also create the dict for all object for
-# serialization and deserialization
+"""Scripts that deals with the Class [BaseModel]
+That also create the dict for all object for
+serialization and deserialization
+"""
 
 
 from datetime import datetime

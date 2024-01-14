@@ -231,7 +231,7 @@ class HBNBCommand(cmd.Cmd):
     def do_EOF(self, line):
         """exit the interpreter
         """
-        print('')
+        print()
         return True
 
     def do_emptyline(self):

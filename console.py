@@ -147,7 +147,7 @@ class HBNBCommand(cmd.Cmd):
                 return
         print("** no instance found **")
 
-    def all(self, arg):
+    def all_class(self, arg):
         """
         <Class Name>.all() returns a list of all the
         <Class Name> in the storage
@@ -162,7 +162,7 @@ class HBNBCommand(cmd.Cmd):
                    all_objects.keys() if key.startswith(obj)]
         print(all_obj)
 
-    def count(self, arg):
+    def do_count(self, arg):
         """
         <Class Name>.count() return the number of
         times the <Class Name> is present in the storage
@@ -208,8 +208,8 @@ class HBNBCommand(cmd.Cmd):
         non-existing commands
         """
         commands = {
-            "all": self.all,
-            "count": self.count,
+            "all": self.all_class,
+            "count": self.do_count,
             "show": self.do_show,
             "destroy": self.do_destroy,
             "update": self.do_update
@@ -231,7 +231,7 @@ class HBNBCommand(cmd.Cmd):
     def do_EOF(self, line):
         """exit the interpreter
         """
-        print()
+        print('')
         return True
 
     def do_emptyline(self):

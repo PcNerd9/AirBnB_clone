@@ -4,7 +4,6 @@
 from models.base_model import BaseModel
 
 
-
 class Place(BaseModel):
     """Take the Place of the User
 

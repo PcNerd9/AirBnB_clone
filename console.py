@@ -104,7 +104,7 @@ class HBNBCommand(Cmd):
         based or not on the class name: Ex. (HBNB) all BaseModel or (HBNB) all
         """
         if (line != "" and line not in self.__user_list):
-            print("** class doesn't exits **")
+            print("** class doesn't exist **")
             return
         all_objects = models.storage.all()
         list_object = [str(value) for value in all_objects.values()]
@@ -140,7 +140,7 @@ class HBNBCommand(Cmd):
                 if (param[2] in all_objects[key].__dict__):
                     type_ = type(all_objects[key].__dict__param[2])
                     setattr(all_objects[key], param[2], type_(param[3]))
-                else:    
+                else:
                     setattr(all_objects[key], param[2], param[3])
                 all_objects[key].save()
                 return

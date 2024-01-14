@@ -4,7 +4,6 @@
 from models.base_model import BaseModel
 
 
-
 class Amenity(BaseModel):
     """inherit from the BaseModel class
     Args:

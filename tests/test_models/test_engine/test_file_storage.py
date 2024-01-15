@@ -143,5 +143,5 @@ class TestFileStorageMethod(TestCase):
         """
         test the save method with an argument
         """
-        with assertRaises(TypeError):
+        with self.assertRaises(TypeError):
             models.storage.save(None)

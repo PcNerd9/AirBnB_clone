@@ -28,6 +28,11 @@ class HBNBCommand(Cmd):
                    "User": User
                    }
 
+    def emptyline(self):
+        """Overriding the emptyline method"""
+
+        return False
+
     def do_create(self, line):
         """Create <Class Name> create a new class with the class name
         """

@@ -3,6 +3,7 @@
 """ Scripts that serializes data from python format to JSON
 and deserializes from JSON to instances to oython format
 """
+import os
 import json
 from datetime import datetime
 from models.base_model import BaseModel
@@ -53,12 +54,13 @@ class FileStorage:
                      "Place": Place,
                      "User": User
                      }
-        try:
-            with open(self.__file_path, "r") as f:
-                self.__objects = json.load(f)
-                for key, value in self.__objects.items():
-                    obj = key.split(".")[0]
+        if (os.path.exists(self.__file_path)):
+            try:
+                with open(self.__file_path, "r") as f:
+                    self.__objects = json.load(f)
+                    for key, value in self.__objects.items():
+                        obj = key.split(".")[0]
 
-                    self.__objects[key] = user_list[obj](**value)
-        except FileNotFoundError:
-            pass
+                        self.__objects[key] = user_list[obj](**value)
+            except FileNotFoundError:
+                pass

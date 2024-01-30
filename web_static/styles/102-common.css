@@ -75,3 +75,16 @@ body {
     cursor: pointer;
     right: 30px;
 }
+
+@media only screen and (max-width: 600px) {
+    .container section.filters button {
+        width: auto; 
+        margin-right: 10px;
+        right: 5px;
+    }
+
+    .container section.filters div {
+        width: 150px;
+        padding: 5px;
+    }
+}
